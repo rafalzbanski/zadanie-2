@@ -17,6 +17,64 @@
 
 The goal of this project is to develop a RESTful service in Java that enables the management of team tasks. The application allows for viewing, adding, editing, and deleting tasks and users, as well as assigning users to tasks. The API is designed to facilitate the creation of a simple frontend for managing and browsing tasks and users.
 
+## Project Structure
+```
+team-task-management-system/
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── pl/
+│   │   │       └── rafalzbanski/
+│   │   │           └── taskmanager/
+│   │   │               ├── TaskManagerApplication.java  # Main Spring Boot application class
+│   │   │               │
+│   │   │               ├── controller/
+│   │   │               │   ├── TaskController.java      # Controller for managing tasks
+│   │   │               │   ├── UserController.java      # Controller for managing users
+│   │   │               │   ├── UserIdsRequest.java      # DTO for updating users assigned to a task
+│   │   │               │   ├── TaskStatusRequest.java   # DTO for updating task status
+│   │   │               │   └── TaskRequest.java         # DTO for creating/updating tasks
+│   │   │               │
+│   │   │               ├── model/
+│   │   │               │   ├── Task.java                # Entity representing a Task
+│   │   │               │   ├── User.java                # Entity representing a User
+│   │   │               │   └── TaskStatus.java          # Enum for task status (NEW, IN_PROGRESS, COMPLETED)
+│   │   │               │
+│   │   │               ├── repository/
+│   │   │               │   ├── TaskRepository.java      # JPA repository for Task
+│   │   │               │   └── UserRepository.java      # JPA repository for User
+│   │   │               │
+│   │   │               ├── service/
+│   │   │               │   ├── TaskService.java         # Business logic for task management
+│   │   │               │   └── UserService.java         # Business logic for user management
+│   │   │               │
+│   │   │               └── exception/
+│   │   │                   ├── ResourceNotFoundException.java  # Exception for handling not found resources
+│   │   │                   └── GlobalExceptionHandler.java     # Centralized exception handling
+│   │   │
+│   │   └── resources/
+│   │       ├── application.properties   # Configuration properties for the application
+│   │       └── data.sql                 # Optional initial data setup for the H2 database
+│   │
+│   └── test/
+│       ├── java/
+│       │   └── pl/
+│       │       └── rafalzbanski/
+│       │           └── taskmanager/
+│       │               ├── TaskServiceTest.java    # Unit tests for TaskService
+│       │               └── UserServiceTest.java    # Unit tests for UserService
+│       │               └── TaskManagerApplicationTests.java    # Unit tests for services are correctly registered 
+│       │
+│       └── resources/
+│           └── application-test.properties  # Test-specific configuration
+│
+├── .gitignore              # Git ignore file
+├── README.md               # Documentation file (this is where you put the project overview)
+├── pom.xml                 # Maven build file with dependencies
+└── mvnw, mvnw.cmd          # Maven wrapper scripts
+
+```
 ## Project Description
 
 The team task management system provides:
